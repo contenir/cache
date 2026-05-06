@@ -1,0 +1,42 @@
+{
+    "name": "contenir/cache",
+    "description": "Framework-agnostic page-cache control for Contenir CMS — admin writes a purge signal, Sites read it and flush.",
+    "type": "library",
+    "license": "MIT",
+    "version": "0.1.0",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../contenir-config",
+            "canonical": false,
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "require": {
+        "php": "^8.1 || ^8.2 || ^8.3"
+    },
+    "require-dev": {
+        "contenir/config": "^0.1.0",
+        "phpunit/phpunit": "^11.0",
+        "squizlabs/php_codesniffer": "^3.10"
+    },
+    "suggest": {
+        "contenir/config": "Required if you intend to use Repository\\FileRepository (admin-side writer). Sites that read state from the merged Laminas/Mezzio config don't need it."
+    },
+    "autoload": {
+        "psr-4": { "Contenir\\Cache\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Contenir\\Cache\\Tests\\": "tests/" }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "cs": "phpcs",
+        "cs-fix": "phpcbf"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

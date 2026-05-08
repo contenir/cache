@@ -3,7 +3,6 @@
     "description": "Framework-agnostic page-cache control for Contenir CMS — admin writes a purge signal, Sites read it and flush.",
     "type": "library",
     "license": "MIT",
-    "version": "0.1.0",
     "repositories": [
         {
             "type": "path",

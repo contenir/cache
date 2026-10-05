@@ -18,7 +18,7 @@ composer require contenir/cache
 Requires PHP 8.3, 8.4 or 8.5. The 0.x releases, which support PHP 8.1, remain
 available from the `0.x` branch and `v0.*` tags; see [UPGRADE-2.0.md](UPGRADE-2.0.md).
 
-Add `contenir/config` (`^0.2 || ^2.0`) if you intend to use `Repository\FileRepository` (admin-side writer). Sites that read state from the merged Laminas/Mezzio config — and use `Repository\InMemoryRepository` in tests — don't need it.
+`contenir/config` (`^0.2 || ^2.0`), which `Repository\FileRepository` uses to read and write the state file, is installed with it.
 
 ## Usage
 
@@ -28,7 +28,7 @@ The public API is four types:
 | --- | --- |
 | `CacheControl` | Immutable state: `bool $enabled`, `array $options`, `array $routes`. `CacheControl::enabled()` and `CacheControl::disabled()` build the empty variants. |
 | `CacheControlRepositoryInterface` | `get(): CacheControl` and `save(CacheControl): void`. `get()` never throws; `save()` throws `RuntimeException` when state cannot be persisted. |
-| `Repository\FileRepository` | Reads and writes a PHP-array config file (needs `contenir/config`). |
+| `Repository\FileRepository` | Reads and writes a PHP-array config file (via `contenir/config`). |
 | `Repository\InMemoryRepository` | Holds state in memory, for tests. Starts disabled unless given an initial state. |
 
 ### Reading state

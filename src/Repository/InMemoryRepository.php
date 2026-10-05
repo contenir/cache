@@ -6,6 +6,7 @@ namespace Contenir\Cache\Repository;
 
 use Contenir\Cache\CacheControl;
 use Contenir\Cache\CacheControlRepositoryInterface;
+use Override;
 
 /**
  * Test-friendly repository that holds state in memory. Shipped in src/ so
@@ -21,11 +22,13 @@ final class InMemoryRepository implements CacheControlRepositoryInterface
         $this->state = $initial ?? CacheControl::disabled();
     }
 
+    #[Override]
     public function get(): CacheControl
     {
         return $this->state;
     }
 
+    #[Override]
     public function save(CacheControl $state): void
     {
         $this->state = $state;

@@ -1,0 +1,27 @@
+{
+    "$schema": "vendor/infection/infection/resources/schema.json",
+    "source": {
+        "directories": ["src"]
+    },
+    "timeout": 10,
+    "threads": "max",
+    "logs": {
+        "text": "infection.log",
+        "summary": "summary.log",
+        "stryker": {
+            "badge": "/^(main|master)$/"
+        }
+    },
+    "mutators": {
+        "@default": true,
+        // `&&` already yields a bool, so the (bool) cast on its right operand is redundant.
+        "CastBool": {
+            "ignoreSourceCodeByRegex": ["return is_scalar\\(\\$value\\) && \\(bool\\) \\$value;"]
+        },
+        // array_diff_key() compares keys only; the value in the exclusion map is never read.
+        "TrueValue": {
+            "ignoreSourceCodeByRegex": ["array_diff_key\\(\\$state->options, \\[self::CACHE_KEY => true\\]\\),"]
+        }
+    },
+    "staticAnalysisTool": "mago"
+}

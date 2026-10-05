@@ -13,6 +13,8 @@ use RuntimeException;
  * never-purged state rather than throwing — first-run consumers must not crash
  * before the admin has ever clicked "purge". Save errors throw so the admin UI
  * can surface them.
+ *
+ * @api
  */
 interface CacheControlRepositoryInterface
 {

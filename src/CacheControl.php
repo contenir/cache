@@ -42,16 +42,15 @@ final class CacheControl
         public readonly bool $enabled,
         public readonly array $options = [],
         public readonly array $routes = [],
-    ) {
-    }
+    ) {}
 
     public static function disabled(): self
     {
-        return new self(false);
+        return new self(enabled: false);
     }
 
     public static function enabled(): self
     {
-        return new self(true);
+        return new self(enabled: true);
     }
 }

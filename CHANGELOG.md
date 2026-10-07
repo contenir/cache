@@ -44,6 +44,11 @@ were withdrawn and are folded into this release.
 
 ### Added
 
+- `Repository\LayeredFileRepository`, moved from contenir-cache-mezzio so
+  both framework adapters share it. It reads the admin's
+  `pagecache.local.php` on every `get()` and lays it over the site's own
+  defaults: a setting absent from the file inherits the default, where
+  `FileRepository` would read a missing `cache` key as disabled.
 - Continuous integration on PHP 8.3, 8.4 and 8.5 against lowest, locked and
   latest dependencies, with coverage reported to Codecov and Infection
   mutation testing at MSI 100%.

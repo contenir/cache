@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Contenir\Cache\Tests\Trait;
+namespace Contenir\PageCache\Tests\Trait;
 
 use FilesystemIterator;
 use RecursiveDirectoryIterator;

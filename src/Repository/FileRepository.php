@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Contenir\Cache\Repository;
+namespace Contenir\PageCache\Repository;
 
-use Contenir\Cache\CacheControl;
-use Contenir\Cache\CacheControlRepositoryInterface;
 use Contenir\Config\Reader\PhpArray as ConfigReader;
 use Contenir\Config\Writer\PhpArray as ConfigWriter;
+use Contenir\PageCache\CacheControl;
+use Contenir\PageCache\CacheControlRepositoryInterface;
 use Override;
 
 use function array_diff_key;

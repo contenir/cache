@@ -1,5 +1,5 @@
 {
-  "name": "contenir/contenir-cache",
+  "name": "contenir/contenir-page-cache",
   "description": "Framework-agnostic page-cache control for Contenir CMS — admin writes a purge signal, Sites read it and flush.",
   "type": "library",
   "license": "MIT",
@@ -13,16 +13,17 @@
     "phpunit/phpunit": "^11.5.42"
   },
   "replace": {
-    "contenir/cache": "self.version"
+    "contenir/cache": "self.version",
+    "contenir/contenir-cache": "self.version"
   },
   "autoload": {
     "psr-4": {
-      "Contenir\\Cache\\": "src/"
+      "Contenir\\PageCache\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Contenir\\Cache\\Tests\\": "tests/"
+      "Contenir\\PageCache\\Tests\\": "tests/"
     }
   },
   "scripts": {

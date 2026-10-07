@@ -4,6 +4,16 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project
 adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- Renamed from `contenir/contenir-cache` to `contenir/contenir-page-cache`,
+  and the namespace from `Contenir\Cache\` to `Contenir\PageCache\`. The
+  package declares `replace` for `contenir/cache` and
+  `contenir/contenir-cache`. No `class_alias` shims are shipped. See
+  [UPGRADE-page-cache.md](UPGRADE-page-cache.md).
+
 ## [2.1.0] - 2026-10-05
 
 ### Changed

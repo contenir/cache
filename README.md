@@ -33,6 +33,7 @@ The public API is four types:
 | `CacheControl` | Immutable state: `bool $enabled`, `array $options`, `array $routes`. `CacheControl::enabled()` and `CacheControl::disabled()` build the empty variants. |
 | `CacheControlRepositoryInterface` | `get(): CacheControl` and `save(CacheControl): void`. `get()` never throws; `save()` throws `RuntimeException` when state cannot be persisted. |
 | `Repository\FileRepository` | Reads and writes a PHP-array config file (via `contenir/contenir-config`). |
+| `Repository\LayeredFileRepository` | Reads the admin's file on every `get()` and lays it over the site's defaults; a setting absent from the file inherits the default. Used by the framework adapters. |
 | `Repository\InMemoryRepository` | Holds state in memory, for tests. Starts disabled unless given an initial state. |
 
 ### Reading state

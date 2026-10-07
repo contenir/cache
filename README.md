@@ -16,7 +16,7 @@ This package provides the *domain* — an immutable state value plus a repositor
 ## Install
 
 ```bash
-composer require contenir/contenir-page-cache
+composer require contenir/contenir-page-cache:^2.0@RC
 ```
 
 Requires PHP 8.3, 8.4 or 8.5. The 0.x releases, which support PHP 8.1, remain

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Contenir\Cache;
+namespace Contenir\PageCache;
 
 /**
  * Immutable cache-control state.

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Contenir\Cache\Tests\Integration\Repository;
+namespace Contenir\PageCache\Tests\Integration\Repository;
 
-use Contenir\Cache\CacheControl;
-use Contenir\Cache\Repository\FileRepository;
-use Contenir\Cache\Tests\Trait\TemporaryDirectoryTrait;
 use Contenir\Config\Exception\WriteException;
+use Contenir\PageCache\CacheControl;
+use Contenir\PageCache\Repository\FileRepository;
+use Contenir\PageCache\Tests\Trait\TemporaryDirectoryTrait;
 use Override;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;

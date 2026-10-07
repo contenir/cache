@@ -17,7 +17,7 @@ this package.
 ## Composer
 
 ```bash
-composer remove contenir/contenir-cache && composer require contenir/contenir-page-cache
+composer remove contenir/contenir-cache && composer require contenir/contenir-page-cache:^2.0@RC
 ```
 
 If you still require `contenir/cache`, remove that instead.

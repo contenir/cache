@@ -10,8 +10,8 @@ use Override;
 
 /**
  * Test-friendly repository that holds state in memory. Shipped in src/ so
- * consumers' tests can require contenir/contenir-page-cache and use this directly
- * without depending on autoload-dev.
+ * consumers' tests can require contenir/contenir-page-cache and use this
+ * directly without depending on autoload-dev.
  */
 final class InMemoryRepository implements CacheControlRepositoryInterface
 {

@@ -10,9 +10,13 @@ adheres to [Semantic Versioning](https://semver.org/).
 
 - Renamed from `contenir/contenir-cache` to `contenir/contenir-page-cache`,
   and the namespace from `Contenir\Cache\` to `Contenir\PageCache\`. The
-  package declares `replace` for `contenir/cache` and
-  `contenir/contenir-cache`. No `class_alias` shims are shipped. See
-  [UPGRADE-page-cache.md](UPGRADE-page-cache.md).
+  package declares `conflict` (any version) with `contenir/cache` and
+  `contenir/contenir-cache` rather than replacing them, because the
+  namespace change means it cannot stand in for either. Composer refuses
+  to install old and new together, so sites must move to the renamed
+  adapter packages (contenir-cache-mezzio, contenir-cache-laminas-mvc)
+  and contenir-cms releases at the same time. No `class_alias` shims are
+  shipped. See [UPGRADE-page-cache.md](UPGRADE-page-cache.md).
 
 ## [2.1.0] - 2026-10-05
 

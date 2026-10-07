@@ -12,9 +12,9 @@
     "infection/infection": "^0.34.1",
     "phpunit/phpunit": "^11.5.42"
   },
-  "replace": {
-    "contenir/cache": "self.version",
-    "contenir/contenir-cache": "self.version"
+  "conflict": {
+    "contenir/cache": "*",
+    "contenir/contenir-cache": "*"
   },
   "autoload": {
     "psr-4": {

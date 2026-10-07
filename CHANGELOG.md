@@ -4,47 +4,33 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project
 adheres to [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [2.0.0-RC1] - Unreleased
+
+The first 2.0 pre-release, published as `contenir/contenir-page-cache`. The
+API keeps its shape apart from the namespace, which moves from
+`Contenir\Cache\` to `Contenir\PageCache\`. The major version also marks
+the move to PHP 8.3+ and the QA toolchain shared by all Contenir 2.x
+packages. See [UPGRADE-2.0.md](UPGRADE-2.0.md) and
+[UPGRADE-page-cache.md](UPGRADE-page-cache.md).
+
+The 2.0.0 and 2.1.0 tags published on 2026-10-05 as `contenir/contenir-cache`
+were withdrawn and are folded into this release.
 
 ### Changed
 
-- Renamed from `contenir/contenir-cache` to `contenir/contenir-page-cache`,
-  and the namespace from `Contenir\Cache\` to `Contenir\PageCache\`. The
-  package declares `conflict` (any version) with `contenir/cache` and
-  `contenir/contenir-cache` rather than replacing them, because the
-  namespace change means it cannot stand in for either. Composer refuses
-  to install old and new together, so sites must move to the renamed
-  adapter packages (contenir-cache-mezzio, contenir-cache-laminas-mvc)
-  and contenir-cms releases at the same time. No `class_alias` shims are
-  shipped. See [UPGRADE-page-cache.md](UPGRADE-page-cache.md).
-
-## [2.1.0] - 2026-10-05
-
-### Changed
-
-- Renamed from `contenir/cache` to `contenir/contenir-cache`. The package
-  declares `replace` for the old name; require `contenir/contenir-cache`
-  instead. See [UPGRADE-2.0.md](UPGRADE-2.0.md).
-- Requires `contenir/contenir-config` `^2.1`, the renamed `contenir/config`,
-  in place of `contenir/config` `^0.2 || ^2.0`.
-
-### Added
-
-- Infection mutation testing in CI, MSI 100%.
-
-## [2.0.0] - 2026-10-05
-
-The public API is unchanged. The major version marks the move to PHP 8.3+
-and the php-db QA toolchain shared by all Contenir 2.x packages. See
-[UPGRADE-2.0.md](UPGRADE-2.0.md).
-
-### Changed
-
+- Renamed from `contenir/cache` (and the short-lived `contenir/contenir-cache`)
+  to `contenir/contenir-page-cache`, and the namespace from `Contenir\Cache\`
+  to `Contenir\PageCache\`. The package declares `conflict` (any version)
+  with `contenir/cache` and `contenir/contenir-cache` rather than replacing
+  them, because the namespace change means it cannot stand in for either.
+  Composer refuses to install old and new together, so sites must move to
+  the renamed adapter packages and contenir-cms releases at the same time.
+  No `class_alias` shims are shipped.
+- Requires PHP 8.3, 8.4 or 8.5. PHP 8.1 and 8.2 are no longer supported.
+- `contenir/contenir-config` (`^2.1`) is now a required dependency instead of
+  a suggestion. `Repository\FileRepository` cannot work without it.
 - `LICENSE` names Contenir as the copyright holder, in line with the other
   Contenir packages, and uses the standard MIT wording.
-- Requires PHP 8.3, 8.4 or 8.5. PHP 8.1 and 8.2 are no longer supported.
-- `contenir/config` (`^0.2 || ^2.0`) is now a required dependency instead of a
-  suggestion. `Repository\FileRepository` cannot work without it.
 
 ### Fixed
 
@@ -58,15 +44,21 @@ and the php-db QA toolchain shared by all Contenir 2.x packages. See
 
 ### Added
 
+- `Repository\LayeredFileRepository`, moved from contenir-cache-mezzio so
+  both framework adapters share it. It reads the admin's
+  `pagecache.local.php` on every `get()` and lays it over the site's own
+  defaults: a setting absent from the file inherits the default, where
+  `FileRepository` would read a missing `cache` key as disabled.
 - Continuous integration on PHP 8.3, 8.4 and 8.5 against lowest, locked and
-  latest dependencies, with coverage reported to Codecov.
+  latest dependencies, with coverage reported to Codecov and Infection
+  mutation testing at MSI 100%.
 - Separate unit (no I/O) and integration (real filesystem) test suites, with
   100% line and branch coverage.
 
 ### Removed
 
 - `squizlabs/php_codesniffer` and `phpcs.xml`, replaced by Mago via
-  `php-db/phpdb-qa-tools`.
+  contenir-qa-tools.
 - The `../config` path repository from `composer.json`.
 
 ## [0.1.1]

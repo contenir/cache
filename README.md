@@ -1,6 +1,8 @@
-# contenir/contenir-cache
+# contenir/contenir-page-cache
 
-Formerly `contenir/cache`; the old package is abandoned in favour of this one.
+Formerly `contenir/cache` and `contenir/contenir-cache`; this package replaces
+both, and the namespace is now `Contenir\PageCache\`. See
+[UPGRADE-page-cache.md](UPGRADE-page-cache.md).
 
 [![Continuous Integration](https://github.com/contenir/contenir-cache/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/contenir/contenir-cache/actions/workflows/continuous-integration.yml)
 [![codecov](https://codecov.io/gh/contenir/contenir-cache/graph/badge.svg)](https://codecov.io/gh/contenir/contenir-cache)
@@ -14,7 +16,7 @@ This package provides the *domain* — an immutable state value plus a repositor
 ## Install
 
 ```bash
-composer require contenir/contenir-cache
+composer require contenir/contenir-page-cache
 ```
 
 Requires PHP 8.3, 8.4 or 8.5. The 0.x releases, which support PHP 8.1, remain
@@ -36,7 +38,7 @@ The public API is four types:
 ### Reading state
 
 ```php
-use Contenir\Cache\Repository\FileRepository;
+use Contenir\PageCache\Repository\FileRepository;
 
 $repo = new FileRepository('/var/www/shared/pagecache.local.php');
 $state = $repo->get();
@@ -49,7 +51,7 @@ if ($state->enabled) {
 ### Writing state (admin)
 
 ```php
-use Contenir\Cache\CacheControl;
+use Contenir\PageCache\CacheControl;
 
 $repo->save(new CacheControl(
     enabled: true,
@@ -94,8 +96,8 @@ On save:
 `InMemoryRepository` is shipped in `src/` so consumers can use it in their own test suites:
 
 ```php
-use Contenir\Cache\Repository\InMemoryRepository;
-use Contenir\Cache\CacheControl;
+use Contenir\PageCache\Repository\InMemoryRepository;
+use Contenir\PageCache\CacheControl;
 
 $repo = new InMemoryRepository(CacheControl::enabled());
 ```

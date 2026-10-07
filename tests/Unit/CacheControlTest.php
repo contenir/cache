@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Contenir\Cache\Tests\Unit;
+namespace Contenir\PageCache\Tests\Unit;
 
-use Contenir\Cache\CacheControl;
+use Contenir\PageCache\CacheControl;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

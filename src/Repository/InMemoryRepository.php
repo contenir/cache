@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Contenir\Cache\Repository;
+namespace Contenir\PageCache\Repository;
 
-use Contenir\Cache\CacheControl;
-use Contenir\Cache\CacheControlRepositoryInterface;
+use Contenir\PageCache\CacheControl;
+use Contenir\PageCache\CacheControlRepositoryInterface;
 use Override;
 
 /**
  * Test-friendly repository that holds state in memory. Shipped in src/ so
- * consumers' tests can require contenir/contenir-cache and use this directly
+ * consumers' tests can require contenir/contenir-page-cache and use this directly
  * without depending on autoload-dev.
  */
 final class InMemoryRepository implements CacheControlRepositoryInterface
